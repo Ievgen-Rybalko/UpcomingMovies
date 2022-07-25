@@ -7,7 +7,7 @@
 
 @testable import UpcomingMoviesDomain
 
-final class ConfigurationRemoteDataSourceProtocolMock: ConfigurationRemoteDataSourceProtocol {
+final class ConfigRemoteDataSourceProtocolMock: ConfigurationRemoteDataSourceProtocol {
 
     var getConfigurationResult: Result<Configuration, Error>?
     private (set) var getConfigurationCallCount = 0

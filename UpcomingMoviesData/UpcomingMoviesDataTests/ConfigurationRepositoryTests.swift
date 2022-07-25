@@ -12,11 +12,11 @@ import XCTest
 class ConfigurationRepositoryTests: XCTestCase {
 
     private var repository: ConfigurationRepository!
-    private var configurationRemoteDataSource: ConfigurationRemoteDataSourceProtocolMock!
+    private var configurationRemoteDataSource: ConfigRemoteDataSourceProtocolMock!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        configurationRemoteDataSource = ConfigurationRemoteDataSourceProtocolMock()
+        configurationRemoteDataSource = ConfigRemoteDataSourceProtocolMock()
         repository = ConfigurationRepository(remoteDataSource: configurationRemoteDataSource)
     }
 
@@ -28,17 +28,17 @@ class ConfigurationRepositoryTests: XCTestCase {
 
     func testGetConfiguration() {
         // Arrange
-        let configurationToTest = Configuration(imagesConfiguration: .init(baseURLString: "testBaseURLString", backdropSizes: [""], posterSizes: [""]),
+        let configToTest = Configuration(imagesConfiguration: .init(baseURLString: "testBaseURLString", backdropSizes: [""], posterSizes: [""]),
                                                 sortConfiguration: SortConfiguration(movieSortKeys: [""]))
         let expectation = XCTestExpectation(description: "Should get app configuration")
         // Act
-        configurationRemoteDataSource.getConfigurationResult = Result.success(configurationToTest)
+        configurationRemoteDataSource.getConfigurationResult = Result.success(configToTest)
         repository.getConfiguration { result in
             guard let configuration = try? result.get() else {
                 XCTFail("Error while getting app configuration")
                 return
             }
-            XCTAssertEqual(configuration.imagesConfiguration.baseURLString, configurationToTest.imagesConfiguration.baseURLString)
+            XCTAssertEqual(configuration.imagesConfiguration.baseURLString, configToTest.imagesConfiguration.baseURLString)
             expectation.fulfill()
         }
         // Assert

@@ -10,7 +10,18 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CB7821C82887F5AC00A410A6"
+            BuildableName = "UpcomingMoviesUITests.xctest"
+            BlueprintName = "UpcomingMoviesUITests"
+            ReferencedContainer = "container:UpcomingMovies.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -19,6 +30,16 @@
                BlueprintIdentifier = "E229A530236BF242006FF112"
                BuildableName = "CoreDataInfrastructureTests.xctest"
                BlueprintName = "CoreDataInfrastructureTests"
+               ReferencedContainer = "container:UpcomingMovies.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CB7821C82887F5AC00A410A6"
+               BuildableName = "UpcomingMoviesUITests.xctest"
+               BlueprintName = "UpcomingMoviesUITests"
                ReferencedContainer = "container:UpcomingMovies.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -51,6 +72,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E221167B21914E4B0039F8C9"
+            BuildableName = "UpcomingMovies.app"
+            BlueprintName = "UpcomingMovies"
+            ReferencedContainer = "container:UpcomingMovies.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
