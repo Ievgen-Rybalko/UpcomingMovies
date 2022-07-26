@@ -33,7 +33,7 @@ class UpcomingMoviesUITests: XCTestCase {
         app.navigationBars.searchFields["Search"].tap()
         app.navigationBars.searchFields["Search"].typeText("Memory")
         app.buttons["search"].tap()
-        XCTAssert(app.staticTexts["Memory"].waitForExistence(timeout: 5))
+        XCTAssert(app.staticTexts["Memory"].waitForExistence(timeout: 10))
         // Use XCTAssert and related functions to verify your tests produce the
         // correct results.
     }
