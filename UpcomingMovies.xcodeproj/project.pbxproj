@@ -14,6 +14,7 @@
 		9598E1DA49AA2CBA6E0628E0 /* Pods_UpcomingMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811C39C9147DA695B15480ED /* Pods_UpcomingMovies.framework */; };
 		CB7821CC2887F5AC00A410A6 /* UpcomingMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7821CB2887F5AC00A410A6 /* UpcomingMoviesUITests.swift */; };
 		CB7821CE2887F5AC00A410A6 /* UpcomingMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7821CD2887F5AC00A410A6 /* UpcomingMoviesUITestsLaunchTests.swift */; };
+		CBA1469628E35B120011F87D /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1469528E35B120011F87D /* Accessibility.swift */; };
 		E200182821EE323200F29220 /* SearchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E200182721EE323200F29220 /* SearchOptionsViewController.swift */; };
 		E200182A21EE336F00F29220 /* SearchOptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E200182921EE336F00F29220 /* SearchOptionsViewModel.swift */; };
 		E20097F926C8D5F000C653BB /* ToggleBarButtonItemContentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20097F826C8D5F000C653BB /* ToggleBarButtonItemContentProtocol.swift */; };
@@ -435,6 +436,7 @@
 		CB7821C92887F5AC00A410A6 /* UpcomingMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UpcomingMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7821CB2887F5AC00A410A6 /* UpcomingMoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesUITests.swift; sourceTree = "<group>"; };
 		CB7821CD2887F5AC00A410A6 /* UpcomingMoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CBA1469528E35B120011F87D /* Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accessibility.swift; sourceTree = "<group>"; };
 		DCEB1DCBD1131A796FBBF671 /* Pods-UpcomingMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpcomingMovies.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpcomingMovies/Pods-UpcomingMovies.release.xcconfig"; sourceTree = "<group>"; };
 		E200182721EE323200F29220 /* SearchOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewController.swift; sourceTree = "<group>"; };
 		E200182921EE336F00F29220 /* SearchOptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewModel.swift; sourceTree = "<group>"; };
@@ -913,6 +915,14 @@
 			path = UpcomingMoviesUITests;
 			sourceTree = "<group>";
 		};
+		CBA1469428E35AD90011F87D /* Accessibility */ = {
+			isa = PBXGroup;
+			children = (
+				CBA1469528E35B120011F87D /* Accessibility.swift */,
+			);
+			path = Accessibility;
+			sourceTree = "<group>";
+		};
 		E200182521EE310900F29220 /* SearchOptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1225,6 +1235,7 @@
 		E22116B1219156EA0039F8C9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CBA1469428E35AD90011F87D /* Accessibility */,
 				E2ED5D4F27991E64006F4316 /* Adapters */,
 				E221F75A222AE44D008DFF87 /* Handlers */,
 				E25F9CEF225B083A0069A6A1 /* Protocols */,
@@ -2512,6 +2523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBA1469628E35B120011F87D /* Accessibility.swift in Sources */,
 				E29408002209E85000A74F68 /* UICollectionView+Extensions.swift in Sources */,
 				E2A65E5121FEC39800485B4E /* VoteAverageView.swift in Sources */,
 				E241FE0922434D4900144FD3 /* AuthPermissionViewModel.swift in Sources */,

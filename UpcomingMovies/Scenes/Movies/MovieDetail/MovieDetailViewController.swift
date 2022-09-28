@@ -92,6 +92,7 @@ final class MovieDetailViewController: UIViewController, Storyboarded, Transitio
 
         overviewLabel.font = FontHelper.body
         overviewLabel.adjustsFontForContentSizeCategory = true
+        
     }
 
     // MARK: - Reactive Behavior
@@ -135,14 +136,28 @@ final class MovieDetailViewController: UIViewController, Storyboarded, Transitio
         guard let viewModel = viewModel else { return }
 
         titleLabel.text = viewModel.title
+        //myaccessibility
+        titleLabel.accessibilityIdentifier = "titleLabel"
+        
         releaseDateLabel.text = viewModel.releaseDate
+        //myaccessibility
+        releaseDateLabel.accessibilityIdentifier = "releaseDateLabel"
 
         backdropImageView.setImage(with: viewModel.backdropURL)
+        //myaccessibility
+        backdropImageView.accessibilityIdentifier = "backdropImageView"
+        
         posterImageView.setImage(with: viewModel.posterURL)
+        //myaccessibility
+        posterImageView.accessibilityIdentifier = "posterImageView"
 
         voteAverageView.voteValue = viewModel.voteAverage
-
+        //myaccessibility
+        voteAverageView.accessibilityIdentifier = "voteAverageView"
+        
         overviewLabel.text = viewModel.overview
+        //myaccessibility
+        overviewLabel.accessibilityIdentifier = "overviewLabel"
     }
 
     private func configureMovieOptions(_ options: [MovieDetailOption]) {

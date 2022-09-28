@@ -29,13 +29,40 @@ class UpcomingMoviesUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        print("app.debugDescription: \(app.debugDescription)")
         app.tabBars.buttons["Search"].tap()
         app.navigationBars.searchFields["Search"].tap()
-        app.navigationBars.searchFields["Search"].typeText("Memory")
-        app.buttons["search"].tap()
+        app.navigationBars.searchFields["Search"].typeText("Memory\n")
+        print("UIElement.ElementType.rawValue: \(app.navigationBars.searchFields["Search"].elementType.rawValue)")
+        //app.navigationBars.searchFields["Search"].typeText("Memory")
+        //app.buttons["search"].tap()
         XCTAssert(app.staticTexts["Memory"].waitForExistence(timeout: 10))
         // Use XCTAssert and related functions to verify your tests produce the
         // correct results.
+    }
+
+    func testCastExists() {
+        let app = XCUIApplication()
+        app.launch()
+        print("app.collectionViews.cells: \(app.collectionViews.cells.debugDescription)")
+        app.collectionViews.cells["Fall"].tap()
+        let expectation1 = XCTestExpectation(description: "Vote is shown")
+        expectation1.fulfill()
+        wait(for: [expectation1], timeout: 2)
+        
+        //print("app.debugDescription in \(#function): \(app.debugDescription)")
+        let titleLabel = app.staticTexts["titleLabel"]
+        let titleText = titleLabel.label
+        print("titleText: \(titleText)")
+        
+        let voteElem = app.staticTexts["voteAverageView"]
+        //let voteText = voteElem.label
+        //print("voteElem: \(voteElem), label: \(voteText)")
+        
+        XCTAssertEqual(titleText, "Fall")
+        //let textInLabel = app.staticTexts["'Credits'"].label
+        //XCTAssertTrue(textInLabel == "Credits")
+        //XCUIApplication().collectionViews.cells["Fall"].children(matching: .other).element.tap()
     }
 
     func testLaunchPerformance() throws {
