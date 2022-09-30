@@ -32,11 +32,15 @@ class UpcomingMoviesUITests: XCTestCase {
         print("app.debugDescription: \(app.debugDescription)")
         app.tabBars.buttons["Search"].tap()
         app.navigationBars.searchFields["Search"].tap()
+        let exp1 = XCTestExpectation(description: "Wait for movie is found")
         app.navigationBars.searchFields["Search"].typeText("Memory\n")
         print("UIElement.ElementType.rawValue: \(app.navigationBars.searchFields["Search"].elementType.rawValue)")
         //app.navigationBars.searchFields["Search"].typeText("Memory")
         //app.buttons["search"].tap()
-        XCTAssert(app.staticTexts["Memory"].waitForExistence(timeout: 10))
+        exp1.fulfill()
+        wait(for: [exp1], timeout: 3)
+        XCTAssertNotNil((app.staticTexts["Memory"]))
+        //XCTAssert(app.staticTexts["Memory"].waitForExistence(timeout: 10))
         // Use XCTAssert and related functions to verify your tests produce the
         // correct results.
     }
@@ -45,24 +49,40 @@ class UpcomingMoviesUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         print("app.collectionViews.cells: \(app.collectionViews.cells.debugDescription)")
-        app.collectionViews.cells["Fall"].tap()
-        let expectation1 = XCTestExpectation(description: "Vote is shown")
-        expectation1.fulfill()
-        wait(for: [expectation1], timeout: 2)
-        
+        app.collectionViews.cells["Spider-Man: No Way Home"].tap()
+        let exp2 = XCTestExpectation(description: "Vote is shown")
+        exp2.fulfill()
+        wait(for: [exp2], timeout: 3)
         //print("app.debugDescription in \(#function): \(app.debugDescription)")
         let titleLabel = app.staticTexts["titleLabel"]
         let titleText = titleLabel.label
         print("titleText: \(titleText)")
-        
-        let voteElem = app.staticTexts["voteAverageView"]
-        //let voteText = voteElem.label
-        //print("voteElem: \(voteElem), label: \(voteText)")
-        
-        XCTAssertEqual(titleText, "Fall")
+        let voteElem = app.staticTexts["voteAverageLabel"]
+        let voteText = voteElem.label
+        print("voteElem: \(voteElem), voteText = \(voteText)")
+        XCTAssertEqual(titleText, "Spider-Man: No Way Home")
         //let textInLabel = app.staticTexts["'Credits'"].label
-        //XCTAssertTrue(textInLabel == "Credits")
+        XCTAssertTrue(voteText == "8.0")
         //XCUIApplication().collectionViews.cells["Fall"].children(matching: .other).element.tap()
+    }
+    
+    func testReviwLabelExists () {
+        let app = XCUIApplication()
+        app.launch()
+        app.collectionViews.cells["Spider-Man: No Way Home"].tap()
+//        let exp1 = XCTestExpectation(description: "Vote is shown")
+        
+//        exp1.fulfill()
+//        wait(for: [exp1], timeout: 3)
+        sleep(3)
+        let reviewLabel = app.otherElements["Reviews"]
+//        let exp2 = XCTestExpectation(description: "Vote is shown")
+//        exp2.fulfill()
+//        wait(for: [exp2], timeout: 3)
+        print("reviewLabel: \(reviewLabel.exists), \(type(of: reviewLabel))")
+        reviewLabel.tap()
+        sleep(3)
+        
     }
 
     func testLaunchPerformance() throws {

@@ -11,15 +11,15 @@ import Foundation
 struct Accessibility {}
 
 extension Accessibility {
-    enum DetailView: String {
-        case genreLabel
-        case genre
+    enum MovieDetailView: String {
+        case backdropImageView
+        case voteAverageLabel
+        case voteAverageView
+        case posterImageView
+        case releaseDateLabel
         case releaseDate
-    
-    
         var idertifier: String {
             return rawValue
         }
     }
 }
-

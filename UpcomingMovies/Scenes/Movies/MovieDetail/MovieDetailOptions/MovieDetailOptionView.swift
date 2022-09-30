@@ -34,6 +34,10 @@ class MovieDetailOptionView: UIView {
         label.setContentHuggingPriority(UILayoutPriority.required, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
+        
+        //myaccessibility
+        //print("option.title: \(option.title + "Identifier")")
+        label.accessibilityIdentifier = "Identifier777"
 
         return label
     }()
@@ -71,8 +75,11 @@ class MovieDetailOptionView: UIView {
 
         isAccessibilityElement = true
         accessibilityLabel = option.title
-
-        optionTitleLabel.text = option.title
+        optionTitleLabel.text = "Rewesss"
+        
+        //myaccessibility
+        optionTitleLabel.accessibilityIdentifier = "Identifier888"
+        //print("=====type offff =====\(type(of: optionTitleLabel))")
         optionImageView.image = UIImage(named: option.iconName)
 
         setupStackView()

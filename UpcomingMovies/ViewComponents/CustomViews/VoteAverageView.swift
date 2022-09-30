@@ -119,6 +119,9 @@ final class VoteAverageView: UIView {
     }
 
     private func updateVoteValue(_ voteValue: Double?) {
+        //
+        //myaccessibility
+        voteAverageLabel.accessibilityIdentifier = "voteAverageLabel"
         guard let voteValue = voteValue, voteValue > 0.0 else {
             voteAverageLabel.text = "-"
             loadedLayer.strokeEnd = 0.0
