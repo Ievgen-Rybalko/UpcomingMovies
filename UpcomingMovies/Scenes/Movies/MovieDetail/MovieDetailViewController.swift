@@ -86,6 +86,8 @@ final class MovieDetailViewController: UIViewController, Storyboarded, Transitio
 
         genreLabel.font = FontHelper.body
         genreLabel.adjustsFontForContentSizeCategory = true
+        //myaccessibility
+        genreLabel.accessibilityIdentifier = Accessibility.MovieDetailView.genreLabel.identifier
 
         releaseDateLabel.font = FontHelper.body
         releaseDateLabel.adjustsFontForContentSizeCategory = true
@@ -133,30 +135,30 @@ final class MovieDetailViewController: UIViewController, Storyboarded, Transitio
 
     private func configureUI() {
         guard let viewModel = viewModel else { return }
-// hello new errrrr
+
         titleLabel.text = viewModel.title
         //myaccessibility
-        titleLabel.accessibilityIdentifier = "titleLabel"
-        
+        titleLabel.accessibilityIdentifier = Accessibility.MovieDetailView.titleLabel.identifier
+
         releaseDateLabel.text = viewModel.releaseDate
         //myaccessibility
-        releaseDateLabel.accessibilityIdentifier = "releaseDateLabel"
+        releaseDateLabel.accessibilityIdentifier = Accessibility.MovieDetailView.releaseDateLabel.identifier
 
         backdropImageView.setImage(with: viewModel.backdropURL)
         //myaccessibility
-        backdropImageView.accessibilityIdentifier = "backdropImageView"
-        
+        backdropImageView.accessibilityIdentifier = Accessibility.MovieDetailView.backdropImageView.identifier
+
         posterImageView.setImage(with: viewModel.posterURL)
         //myaccessibility
-        posterImageView.accessibilityIdentifier = "posterImageView"
+        posterImageView.accessibilityIdentifier = Accessibility.MovieDetailView.posterImageView.identifier
 
         voteAverageView.voteValue = viewModel.voteAverage
         //myaccessibility
-        voteAverageView.accessibilityIdentifier = "voteAverageView"
-        
+        voteAverageView.accessibilityIdentifier = Accessibility.MovieDetailView.voteAverageView.identifier
+
         overviewLabel.text = viewModel.overview
         //myaccessibility
-        overviewLabel.accessibilityIdentifier = "overviewLabel"
+        overviewLabel.accessibilityIdentifier = Accessibility.MovieDetailView.overviewLabel.identifier
     }
 
     private func configureMovieOptions(_ options: [MovieDetailOption]) {

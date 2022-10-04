@@ -75,7 +75,7 @@ class MovieDetailOptionView: UIView {
 
         isAccessibilityElement = true
         accessibilityLabel = option.title
-        optionTitleLabel.text = "Rewesss"
+        optionTitleLabel.text = option.title
         
         //myaccessibility
         optionTitleLabel.accessibilityIdentifier = "Identifier888"

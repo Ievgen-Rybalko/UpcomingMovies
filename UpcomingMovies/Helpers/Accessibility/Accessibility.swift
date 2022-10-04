@@ -10,15 +10,31 @@ import Foundation
 
 struct Accessibility {}
 
+// MARK: - MovieDetailView
+
 extension Accessibility {
     enum MovieDetailView: String {
-        case backdropImageView
+        case backdropImageView//
         case voteAverageLabel
-        case voteAverageView
-        case posterImageView
-        case releaseDateLabel
-        case releaseDate
-        var idertifier: String {
+        case voteAverageView//
+        case posterImageView//
+        case releaseDateLabel//
+        case genreLabel//
+        case titleLabel //
+        case overviewLabel//
+
+        var identifier: String {
+            return rawValue
+        }
+    }
+}
+// MARK: - MovieCellsView
+
+extension Accessibility {
+    enum MovieCell: String {
+        case movieCell
+
+        var identifier: String {
             return rawValue
         }
     }

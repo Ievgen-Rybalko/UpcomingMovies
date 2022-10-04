@@ -12,6 +12,7 @@
 		782DBD67221CACC800191FCA /* MovieVideosViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782DBD66221CACC800191FCA /* MovieVideosViewModelTests.swift */; };
 		8D9E6AA5AC63EC1CD4545CC2 /* Pods_UpcomingMoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BAA4F08E81C71F32BC7520C /* Pods_UpcomingMoviesTests.framework */; };
 		9598E1DA49AA2CBA6E0628E0 /* Pods_UpcomingMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811C39C9147DA695B15480ED /* Pods_UpcomingMovies.framework */; };
+		CB1DCDFD28EC1773002C4D88 /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1469528E35B120011F87D /* Accessibility.swift */; };
 		CB7821CC2887F5AC00A410A6 /* UpcomingMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7821CB2887F5AC00A410A6 /* UpcomingMoviesUITests.swift */; };
 		CB7821CE2887F5AC00A410A6 /* UpcomingMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7821CD2887F5AC00A410A6 /* UpcomingMoviesUITestsLaunchTests.swift */; };
 		CBA1469628E35B120011F87D /* Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA1469528E35B120011F87D /* Accessibility.swift */; };
@@ -2514,6 +2515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB1DCDFD28EC1773002C4D88 /* Accessibility.swift in Sources */,
 				CB7821CC2887F5AC00A410A6 /* UpcomingMoviesUITests.swift in Sources */,
 				CB7821CE2887F5AC00A410A6 /* UpcomingMoviesUITestsLaunchTests.swift in Sources */,
 			);

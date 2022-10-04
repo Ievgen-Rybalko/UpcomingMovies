@@ -50,9 +50,9 @@ class UpcomingMoviesUITests: XCTestCase {
         app.launch()
         print("app.collectionViews.cells: \(app.collectionViews.cells.debugDescription)")
         app.collectionViews.cells["Spider-Man: No Way Home"].tap()
-        let exp2 = XCTestExpectation(description: "Vote is shown")
-        exp2.fulfill()
-        wait(for: [exp2], timeout: 3)
+//        let exp2 = XCTestExpectation(description: "Vote is shown")
+//        exp2.fulfill()
+//        wait(for: [exp2], timeout: 3)
         //print("app.debugDescription in \(#function): \(app.debugDescription)")
         let titleLabel = app.staticTexts["titleLabel"]
         let titleText = titleLabel.label
@@ -65,24 +65,56 @@ class UpcomingMoviesUITests: XCTestCase {
         XCTAssertTrue(voteText == "8.0")
         //XCUIApplication().collectionViews.cells["Fall"].children(matching: .other).element.tap()
     }
-    
+
     func testReviwLabelExists () {
         let app = XCUIApplication()
         app.launch()
         app.collectionViews.cells["Spider-Man: No Way Home"].tap()
 //        let exp1 = XCTestExpectation(description: "Vote is shown")
-        
 //        exp1.fulfill()
 //        wait(for: [exp1], timeout: 3)
         sleep(3)
-        let reviewLabel = app.otherElements["Reviews"]
-//        let exp2 = XCTestExpectation(description: "Vote is shown")
-//        exp2.fulfill()
-//        wait(for: [exp2], timeout: 3)
-        print("reviewLabel: \(reviewLabel.exists), \(type(of: reviewLabel))")
+
+        // MARK: Button NSPredicate
+        let backBtn1 = app.navigationBars.buttons.matching(NSPredicate(format: "label CONTAINS %@ AND label CONTAINS %@", "Upcoming", "movies")).firstMatch
+        //print("Debug backBtn1: \(backBtn1.debugDescription)")
+        print("backBtn1: title=== \(backBtn1.title), label1=== \(backBtn1.label), identifier1===\(backBtn1.identifier), type1===\(backBtn1.elementType)")
+
+        // MARK: backBtn element
+        let backBtn = app.navigationBars.buttons["Upcoming movies"]
+        print("Debug backBtn: \(backBtn.debugDescription)")
+        print("backBtn: title=== \(backBtn.title), label=== \(backBtn.label), identifier===\(backBtn.identifier), type===\(backBtn.elementType)")
+
+        // MARK: elipsBtn element
+        let elipsBtn = app.navigationBars.buttons["Ellipsis"]
+        print("elipsBtn: title=== \(elipsBtn.title), label=== \(elipsBtn.label), identifier===\(elipsBtn.identifier), type===\(elipsBtn.elementType)")
+        print("label=== \(elipsBtn.label)")
+
+        // MARK: reviewLabel
+        //let reviewLabel = app.otherElements["Reviews"]
+        let reviewLabel = app.scrollViews.otherElements["Reviews"]
+        print("reviewLabel: title=== \(reviewLabel.title), label=== \(reviewLabel.label), identifier===\(reviewLabel.identifier), type===\(reviewLabel.elementType)")
+        //print("reviewLabel: \(reviewLabel.exists), \(type(of: reviewLabel))")
         reviewLabel.tap()
+
+        // MARK: movieDetailLabel
+
+        let titleLabel = app.staticTexts.containing(NSPredicate(format: "identifier LIKE %@", "\(Accessibility.MovieDetailView.titleLabel.identifier)*")).element
+        //print("Debug backBtn1: \(backBtn1.debugDescription)")
+        print("titleLabel: title=== \(titleLabel.title), label=== \(titleLabel.label), identifier===\(titleLabel.identifier), type===\(titleLabel.elementType)")
+
+    }
+
+    func testWithAccessibilityIDsEnum () {
+        let app = XCUIApplication()
+        app.launch()
+        app.collectionViews.cells["Spider-Man: No Way Home"].tap()
         sleep(3)
-        
+
+        // MARK: overviewLabel
+        let overviewLabel = app.staticTexts[Accessibility.MovieDetailView.overviewLabel.identifier]
+
+        print("overviewLabel: title=== \(overviewLabel.title), label=== \(overviewLabel.label), identifier===\(overviewLabel.identifier), type===\(overviewLabel.elementType)")
     }
 
     func testLaunchPerformance() throws {
