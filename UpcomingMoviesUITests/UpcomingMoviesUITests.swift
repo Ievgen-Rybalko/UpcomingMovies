@@ -5,6 +5,40 @@
 //  Created by Ievgen Rybalko on 20.07.2022.
 //  Copyright © 2022 Alonso. All rights reserved.
 //
+//   ====================================================
+//   app.launchArguments = ["enable-testing"]
+//   app.launchArguments.append("-debugServer")
+//
+//   #if DEBUG
+//   if CommandLine.arguments.contains("enable-testing") {
+//   configureAppForTesting()
+//   }
+//   #endif
+//
+//       configureAppForTesting() {
+//           UIView.setAnimationsEnabled(false)
+//          addUIInterruptionMonitor(withDescription:                      "Automatically allow location permissions") { alert in
+//          alert.buttons["OK"].tap()
+//          return true
+//          }
+//      }
+
+// making screensots
+//          let screenshot = app.screenshot()
+//          let fullScreenshot = XCUIScreen.main.screenshot() - for example of full screen
+//          let attachment = XCTAttachment(screenshot: screenshot)
+//
+//          attachment.name = "My Great Screenshot"
+//          attachment.lifetime = .keepAlways
+//          add(attachment)
+//====================== better screenshots description
+//    func takeScreenshot(name: String) {
+//      let fullScreenshot = XCUIScreen.main.screenshot()
+//
+//      let screenshot = XCTAttachment(uniformTypeIdentifier: "public.png", name: "Screenshot-\(name)-\(UIDevice.current.name).png", payload: fullScreenshot.pngRepresentation, userInfo: nil)
+//      screenshot.lifetime = .keepAlways
+//      add(screenshot)
+//    }
 
 import XCTest
 
@@ -115,6 +149,34 @@ class UpcomingMoviesUITests: XCTestCase {
         let overviewLabel = app.staticTexts[Accessibility.MovieDetailView.overviewLabel.identifier]
 
         print("overviewLabel: title=== \(overviewLabel.title), label=== \(overviewLabel.label), identifier===\(overviewLabel.identifier), type===\(overviewLabel.elementType)")
+    }
+
+    func testWithScroll () {
+        let app = XCUIApplication()
+        app.launch()
+        let app1 = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+        app1.launch()
+        print("safffari \(app1.debugDescription)")
+
+        sleep(3)
+        let cellA = app.cells.element(boundBy: 3)
+        print("cellA: title== \(cellA.title), label=== \(cellA.label), identifier==\(cellA.identifier), type==\(cellA.elementType)")
+        print("cellA XCUIElementType: \(type(of: cellA))")
+
+        let screenshot = cellA.screenshot()
+        let attachment = XCTAttachment(screenshot: screenshot)
+        attachment.name = "My Great Screenshot"
+        attachment.lifetime = .keepAlways
+        add(attachment)
+
+        cellA.swipeUp()   // velocity: 0.5 -- didnot work
+        //app.cells.element(boundBy: 3).scroll(byDeltaX: CGFloat(0), deltaY: CGFloat(100))
+        //sleep(3)
+        let movieCell = app.descendants(matching: .cell).element(boundBy: 3)
+        print("movieCell: \(movieCell.staticTexts)")
+
+        // TODO: accesibility for each dynamically
+
     }
 
     func testLaunchPerformance() throws {
