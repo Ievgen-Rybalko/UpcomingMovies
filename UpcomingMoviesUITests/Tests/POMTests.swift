@@ -65,4 +65,25 @@ class POMTests: XCTestCase {
         XCTAssertEqual(titleLabelText, "Fall")
     }
 
+    func testSignIn() {
+        let app = XCUIApplication()
+        app.launch()
+
+        let mainPage = MoviesMainPage(app: app)
+        mainPage.accountButton.tap()
+
+        Thread.sleep(forTimeInterval: 3)
+
+        let signInWithTMDB = SignInWithTMDB(app: app)
+        signInWithTMDB.signInButton.tap()
+        print("=====app.debugDescription=  \(app.debugDescription)")
+
+        Thread.sleep(forTimeInterval: 3)
+
+        let loginBtnIs = app.staticTexts["Login"].firstMatch.isHittable
+        print("=====loginBtn=  \(loginBtnIs)")
+        //loginBtnIs.tap()
+        Thread.sleep(forTimeInterval: 3)
+    }
+
 }

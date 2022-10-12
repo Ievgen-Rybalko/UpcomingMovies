@@ -19,9 +19,9 @@ class MoviesMainPage {
     init(app: XCUIApplication) {
         self.app = app
         movieCell = app.collectionViews.cells["Spider-Man: No Way Home"]
-        searchButton = app.tabBars["Search"]
-        accountButton = app.tabBars["Account"]
-        upcomingButton = app.tabBars["Upcoming"]
+        searchButton = app.windows.tabBars.buttons["Search"]
+        accountButton = app.windows.tabBars.buttons["Account"]
+        upcomingButton = app.windows.tabBars.buttons["Upcoming"]
         }
 
     func tapToMovie(name: String) {
@@ -34,4 +34,3 @@ class MoviesMainPage {
     }
 
 }
-
