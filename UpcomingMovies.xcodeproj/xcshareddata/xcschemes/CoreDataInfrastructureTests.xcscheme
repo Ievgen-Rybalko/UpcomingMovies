@@ -42,6 +42,11 @@
                BlueprintName = "UpcomingMoviesUITests"
                ReferencedContainer = "container:UpcomingMovies.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "UpcomingMoviesUITests1/testWithScroll()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

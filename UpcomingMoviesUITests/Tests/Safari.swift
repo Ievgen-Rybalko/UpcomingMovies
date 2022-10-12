@@ -35,17 +35,18 @@ class UpcomingMoviesUITests1: XCTestCase {
         sleep(3)
 
         let textField = app1.textFields.firstMatch
-        textField.swipeLeft()
+        textField.swipeUp()
         print("===searchField:: title=== \(textField.title), label=== \(textField.label)")
         print("identifier===\(textField.identifier), type===\(textField.elementType), placeholder\(textField.placeholderValue)")
 
         sleep(2)
         textField.tap()
+
         textField.typeText("www.ukr.net\n")
         Thread.sleep(forTimeInterval: 3)
 
-        print("===appsss STATE:: \(app.state)")
-        print("===debugDescription:: \(app1.debugDescription)")
+        //print("===appsss STATE:: \(app.state)")
+        //print("===debugDescription:: \(app1.debugDescription)")
 
 //        let cellA = app.cells.element(boundBy: 3)
 //        print("cellA: title== \(cellA.title), label=== \(cellA.label), identifier==\(cellA.identifier), type==\(cellA.elementType)")
@@ -53,7 +54,7 @@ class UpcomingMoviesUITests1: XCTestCase {
 //
         let screenshot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: screenshot)
-        attachment.name = "My Awesome Screenshot"
+        attachment.name = "My Awesome Screenshot2"
         attachment.lifetime = .keepAlways
         add(attachment)
     }

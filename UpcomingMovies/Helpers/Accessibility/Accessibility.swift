@@ -15,7 +15,7 @@ struct Accessibility {}
 extension Accessibility {
     enum MovieDetailView: String {
         case backdropImageView//
-        case voteAverageLabel
+        case voteAverageLabel//
         case voteAverageView//
         case posterImageView//
         case releaseDateLabel//
